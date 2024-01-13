@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    double cus, vtam, vtip, valor;
+    char tam, tip;
+
+    scanf("%lf", &cus);
+    scanf(" %c", &tam);
+    scanf(" %c", &tip);
+
+
+    if(tam == 'P'){
+        vtam = 2.75;
+    }
+    else if(tam == 'M'){
+        vtam = 3.66;
+    }
+    else{
+        vtam = 5.17;
+    }
+
+    if(tip == 'B'){
+        vtip = 3.82;
+    }
+    else if(tip == 'C'){
+        vtip = 4.55;
+    }
+    else{
+        vtip = 7.12;
+    }
+
+    valor = (cus*vtam + cus*vtip)/2;
+    
+    printf("%.2lf R$\n", valor);
+
+	return 0;
+}
