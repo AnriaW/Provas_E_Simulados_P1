@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    float alu, sup, nsup, pas, nbus, max, vag, clpas;
+
+    scanf("%f %f %f %f", &alu, &sup, &nbus, &max);
+
+   if (sup<=0){
+       nsup=0;
+   } 
+   else{
+       nsup = (alu/sup);
+   }
+
+    pas = alu + nsup;
+    clpas = ceil(pas);;
+
+    vag = (nbus*max)-clpas;
+    
+if(alu==0){
+    printf("Davi foi assistir o filme sozinho =(");
+}
+else{
+    if (vag>0){
+            printf("Iremos ao cinema!\n");
+            printf("Vagas Vazias = %.0f\n", ceil(vag));
+        }
+
+    else if(vag == 0){
+        printf("Iremos ao cinema!\n");
+        printf("Todas as vagas foram preenchidas.\n");
+        }
+        
+    else{
+        printf("N�o � poss�vel.\n");
+        printf("Falta %.0f vagas.\n", ceil(-vag));
+        }
+    }
+	return 0;
+}
