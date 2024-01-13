@@ -1,0 +1,208 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+    char ry1, fi1, ru1, he1;
+    char ry2, fi2, ru2, he2;
+    int va, vb, vc, vd, ve;
+    int vi, vj, vk, vl, vm;
+    int letra1, letra2, letra3, letra4, letra5, letra6, letra7, letra8;
+    int somary, somafi, somaru, somahe;
+    int valry, valfi, valru, valhe;
+
+    scanf(" %c", &ry1);
+    scanf(" %c", &fi1);
+    scanf(" %c", &ru1);
+    scanf(" %c", &he1);
+    scanf(" %c", &ry2);
+    scanf(" %c", &fi2);
+    scanf(" %c", &ru2);
+    scanf(" %c", &he2);
+
+    scanf("%d %d %d %d %d %d %d %d %d %d", &va, &vb, &vc, &vd, &ve, &vi, &vj, &vk, &vl, &vm);
+
+    if (ry1 == 'a') {
+        letra1 = va;
+    } else if (ry1 == 'b') {
+        letra1 = vb;
+    } else if (ry1 == 'c') {
+        letra1 = vc;
+    } else if (ry1 == 'd'){
+        letra1 = vd;
+    }
+    else{
+        letra1 = ve;
+    }
+
+    if (fi1 == 'a') {
+        letra2 = va;
+    } else if (fi1 == 'b') {
+        letra2 = vb;
+    } else if (fi1 == 'c') {
+        letra2 = vc;
+    } else if(fi1 == 'd') {
+        letra2 = vd;
+    } else{
+        letra2 = ve;
+    }
+
+    if (ru1 == 'a') {
+        letra3 = va;
+    } else if (ru1 == 'b') {
+        letra3 = vb;
+    } else if (ru1 == 'c') {
+        letra3 = vc;
+    } else if(ru1 == 'd') {
+        letra3 = vd;
+    } else{
+        letra3 = ve;
+    }
+
+    if (he1 == 'a') {
+        letra4 = va;
+    } else if (he1 == 'b') {
+        letra4 = vb;
+    } else if (he1 == 'c') {
+        letra4 = vc;
+    } else if(he1 == 'd'){
+        letra4 = vd;
+    } else{
+        letra4 = ve;
+    }
+
+    if (ry2 == 'i') {
+        letra5 = vi;
+    } else if (ry2 == 'j') {
+        letra5 = vj;
+    } else if (ry2 == 'k') {
+        letra5 = vk;
+    } else if (ry2 == 'l'){
+        letra5 = vl;
+    }
+    else{
+        letra5 = vm;
+    }
+
+    if (fi2 == 'i') {
+        letra6 = vi;
+    } else if (fi2 == 'j') {
+        letra6 = vj;
+    } else if (fi2 == 'k') {
+        letra6 = vk;
+    } else if(fi2 == 'l') {
+        letra6 = vl;
+    } else{
+        letra6 = vm;
+    }
+
+    if (ru2 == 'i') {
+        letra7 = vi;
+    } else if (ru2 == 'j') {
+        letra7 = vj;
+    } else if (ru2 == 'k') {
+        letra7 = vk;
+    } else if(ru2 == 'l') {
+        letra7 = vl;
+    } else{
+        letra7 = vm;
+    }
+
+    if (he2 == 'i') {
+        letra8 = vi;
+    } else if (he2 == 'j') {
+        letra8 = vj;
+    } else if (he2 == 'k') {
+        letra8 = vk;
+    } else if(he2 == 'l'){
+        letra8 = vl;
+    } else{
+        letra8 = vm;
+    }
+
+    somary = letra1 * letra5;
+    somafi = letra2 * letra6;
+    somaru = letra3 * letra7;
+    somahe = letra4 * letra8;
+
+    if(somary>100){
+        valry = somary%100;
+    }
+    else{
+        valry = somary;
+    }
+
+    if(somafi>100){
+        valfi = somafi%100;
+    }
+    else{
+        valfi = somafi;
+    }
+
+    if(somaru>100){
+        valru = somaru%100;
+    }
+    else{
+        valru = somaru;
+    }
+
+    if(somahe>100){
+        valhe = somahe%100;
+    }
+    else{
+        valhe = somahe;
+    }
+
+
+    if(valry>valfi && valry>valru && valry>valhe){
+        printf("Ryan %d - Vencedor\n", valry);
+        if(valfi<valru && valfi< valhe){
+            printf("Filipe %d - Perdedor\n", valfi);
+        }
+        else if(valru<valfi && valru< valhe){
+            printf("Ruan %d - Perdedor\n", valru);
+        }
+        else{
+            printf("Heron %d - Perdedor\n", valhe);
+        }
+    }
+    else if(valfi >valry && valfi>valru && valfi>valhe){
+        printf("Filipe %d - Vencedor\n", valfi);
+        if(valry<valru && valry< valhe){
+            printf("Ryan %d - Perdedor\n", valry);
+        }
+        else if(valru<valry && valru< valhe){
+            printf("Ruan %d - Perdedor\n", valru);
+        }
+        else{
+            printf("Heron %d - Perdedor\n", valhe);
+        }
+    }else if (valru>valfi && valru>valry && valru>valhe){
+        printf("Ruan %d - Vencedor\n", valru);
+        if(valfi<valry && valfi< valhe){
+            printf("Filipe %d - Perdedor\n", valfi);
+        }
+        else if(valry<valfi && valry< valhe){
+            printf("Ryan %d - Perdedor\n", valry);
+        }
+        else{
+            printf("Heron %d - Perdedor\n", valhe);
+        }
+    }
+    else{
+        printf("Heron %d - Vencedor\n", valhe);
+        if(valfi<valru && valfi< valry){
+            printf("Filipe %d - Perdedor\n", valfi);
+        }
+        else if(valru<valfi && valru< valry){
+            printf("Ruan %d - Perdedor\n", valru);
+        }
+        else{
+            printf("Ryan %d - Perdedor\n", valry);
+        }
+    }
+    
+
+	return 0;
+}
