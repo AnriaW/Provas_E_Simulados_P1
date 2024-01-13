@@ -1,0 +1,69 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main(){
+
+    int age;
+    double ab1, ab2, reav;
+
+    scanf("%d", &age);
+    scanf("%lf %lf %lf", &ab1, &ab2, &reav);
+
+    double final;
+
+    // se for de maior
+    if (age >= 18){
+        final = (((ab1+ab2)/2)*6 + reav*3)/9;
+    }
+
+    // se n�o for de maior
+    else{
+
+        // se tiver alguma nota abaixo de 7
+        if(ab1 < 7 || ab2 < 7){
+            
+            // se a ab1 for a menor das 3
+            if(ab1 <= ab2 && ab1 <= reav){
+
+                final = (ab2 + reav)/2;
+            }
+
+            // se a ab2 for a menor das 3
+            else if(ab2 <= ab1 && ab2 <= reav){
+
+                final = (ab1 + reav)/2;
+
+            }
+            
+            // se a reav for a menor das 3
+            else{
+
+                final = (ab1 + ab2)/2;
+
+            }
+        }
+
+        // caso a ab1 e a ab2 sejam maiores ou iguais a 7
+        else{
+
+            final = (ab1 + ab2)/2;
+
+        }     
+    }
+
+    if(ab1 < 4 || ab2 < 4 || reav < 4 ){
+        printf("Reprovado"); 
+    }
+
+    else if( final < 5.5 ){
+        printf("Reprovado");
+    }
+    else{
+        printf("Aprovado");
+        
+    }
+
+    return 0;
+}
