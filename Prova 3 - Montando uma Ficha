@@ -1,0 +1,82 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+void read(int arr[], int size, int i)
+{
+    if (i == size) return;
+
+    scanf("%d", &arr[i]);
+
+    read(arr, size, i + 1);
+}
+
+void chance(int arr[], int size, int j)
+{
+    if (j == size){
+		 return;
+	}
+
+    if (arr[j] > arr[j + 1]){
+        int temp = arr[j];
+
+        arr[j] = arr[j + 1];
+
+        arr[j + 1] = temp;
+    }
+
+    chance(arr, size, j + 1);
+}
+
+void reord(int arr[], int size)
+{
+    if (size < 0){
+		return;
+	}
+
+    chance(arr, size, 0);
+
+    reord(arr, size - 1);
+}
+
+void loop(int add[], int dices[], int i)
+{
+	if (i == 6){
+	 return;
+
+	}
+
+	read(dices, 4, 0);
+
+	reord(dices, 4 - 1);
+
+	add[i] = dices[1] + dices[2] + dices[3];
+
+	loop(add, dices, i + 1);
+}
+
+void print(int comp[], int add[])
+{
+		printf("For = %d\n", add[6 - comp[0]]);
+		printf("Des = %d\n", add[6 - comp[1]]);
+		printf("Con = %d\n", add[6 - comp[2]]);
+		printf("Sab = %d\n", add[6 - comp[3]]);
+		printf("Int = %d\n", add[6 - comp[4]]);
+		printf("Car = %d\n", add[6 - comp[5]]);
+}
+
+int main() {
+
+	int add[6];
+	int dices[4];
+	int comp[6];
+
+	loop(add, dices, 0);
+	reord(add, 5);
+	read(comp, 6, 0);
+
+	print(comp, add);
+
+	return 0;
+}
