@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+int main(){
+    int n;
+    scanf("%d", &n);
+    int wink = 0;
+    int winy = 0;
+
+    batalha(n, wink, winy);
+    return 0;
+}
+
+int batalha(int n, int wink, int winy){
+
+    if(n==0){
+            if(winy> wink){
+        printf("Kaio foi o perdedor.");
+    }
+    else{
+        printf("Yuri foi o perdedor.");
+    }
+        return 0;
+    }
+    int k, y;
+    scanf("%d %d", &y, &k);
+
+
+
+    if(k == 0 && y == 1 || k == 0 && y == 2 || k == 4 && y == 1 ||  k == 4 && y == 0 || k == 3 && y == 4 || k == 3 && y == 0 ||  k == 1 && y == 2 || k == 1 && y == 3 ||  k == 2 && y == 3 ||  k == 2 && y == 4 ){
+        wink++;
+    }
+    else{
+        winy++;
+    }
+    return batalha(n-1, wink, winy);
+}
