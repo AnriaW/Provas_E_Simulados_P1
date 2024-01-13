@@ -1,0 +1,124 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+	int n, m;
+
+	scanf("%d %d", &n, &m);
+
+	int morig[n][m];
+
+	int i, j;
+
+	for(i = 0; i < n; i++){
+		for(j = 0; j < m; j++){
+			scanf("%d", &morig[i][j]);			
+		}
+	}
+
+	int a;
+	scanf("%d", &a);
+
+	int k = 0;
+	int x, y, d;
+
+	while(k < a){
+		
+		scanf("%d %d %d", &x, &y, &d);
+
+		morig[x][y] -= d;
+
+		if(x > 0 && x < n-1 && y > 0 && y < m-1){
+			morig[x-1][y] -= d/2;
+			morig[x+1][y] -= d/2;
+			morig[x][y-1] -= d/2;
+			morig[x][y+1] -= d/2;
+			morig[x-1][y-1] -= d/2;
+			morig[x-1][y+1] -= d/2;	
+			morig[x+1][y-1] -= d/2;
+			morig[x+1][y+1] -= d/2;	
+		}
+
+		else if (x == 0 && y > 0 && y < m-1){
+			morig[x+1][y] -= d/2;
+			morig[x][y-1] -= d/2;
+			morig[x][y+1] -= d/2;
+			morig[x+1][y-1] -= d/2;
+			morig[x+1][y+1] -= d/2;
+		}
+
+		else if (x == n-1 && y > 0 && y < m-1){
+			morig[x-1][y-1] -= d/2;
+			morig[x-1][y+1] -= d/2;	
+			morig[x][y-1] -= d/2;
+			morig[x][y+1] -= d/2;
+			morig[x-1][y] -= d/2;
+		}
+
+		else if(x > 0 && x < n-1 && y == 0){
+			morig[x-1][y] -= d/2;
+			morig[x+1][y] -= d/2;
+			morig[x+1][y+1] -= d/2;	
+			morig[x-1][y+1] -= d/2;	
+			morig[x][y+1] -= d/2;
+		}
+		else if(x > 0 && x < n-1 && y == m-1){
+			morig[x-1][y] -= d/2;
+			morig[x+1][y] -= d/2;
+			morig[x][y-1] -= d/2;
+			morig[x-1][y-1] -= d/2;
+			morig[x+1][y-1] -= d/2;		
+		}
+		else if(x == 0 && y ==0){
+			morig[x+1][y+1] -= d/2;	
+			morig[x][y+1] -= d/2;
+			morig[x+1][y] -= d/2;
+		}
+		else if(x == n-1 && y ==0){
+			morig[x-1][y+1] -= d/2;	
+			morig[x][y+1] -= d/2;
+			morig[x-1][y] -= d/2;
+		}
+		else if(x == 0 && y == m-1){
+			morig[x+1][y-1] -= d/2;
+			morig[x][y-1] -= d/2;
+			morig[x+1][y] -= d/2;
+		}
+		else if(x == n-1 && y == m-1){
+			morig[x-1][y-1] -= d/2;
+			morig[x][y-1] -= d/2;
+			morig[x-1][y] -= d/2;
+		}
+		
+		k++;
+	
+
+	}
+
+	for(i = 0; i < n; i++){
+		for(j = 0; j < m; j++){
+
+			if(j < m-1){
+
+				if(morig[i][j] < 0){
+				printf("0 ");
+			}
+				else{
+				printf("%d ", morig[i][j]);
+			}
+			}
+			else{
+				if(morig[i][j] < 0){
+				printf("0\n");
+			}
+				else{
+				printf("%d\n", morig[i][j]);
+			}
+			}
+		}
+	}
+	
+	return 0;
+}
